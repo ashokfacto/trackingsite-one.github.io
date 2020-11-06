@@ -1,7 +1,20 @@
-<h1>
-    Hi this is a new change
-  </h1>
-
-  <div>
-    <iframe style="width: 70%; height: 500px;" src="https://d38ujozxngp8ds.cloudfront.net/landing-page?token=53d6e63535fb2f4333b3a2beaff23918c8119a15bf019cf3d400527c50d870bezLvgExP9NB26sY0vz9f3dw==3ef776ff92ec46955d8dd30f5249a05196b6c5bb4a26c1f51e0071b60aa30f29&cid=__cid__" id="ftrealForm"></iframe>
-  </div>
+<div style="height: 100%; overflow: scroll; overflow-x: scroll;">
+  <div id="factoreal-landing-page"></div>
+  <script>
+    var cid = new URL(location.href).searchParams.get("cid");
+    console.log("cid");
+    console.log(cid);
+    var url = "http://localhost:1337/exportlandingpage?landingpage=ba0ee1cf544a346f6322f4c65d7a0f1c9ffb86bed2a3e2d799031010932881d9A/Om+VKFqsnzmv6p0Ih+oA==953f9a376875960216b6cb618755cb6104c154bdd34e9a1c215c8d76ff261edf";
+    if (cid) {
+      url = url + "&contact_id=" + cid;
+    }
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("factoreal-landing-page").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", url, true);
+    xhttp.send();      
+  </script>
+</div>
