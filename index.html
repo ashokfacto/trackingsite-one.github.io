@@ -8,6 +8,7 @@
     var search = window.location.search.slice(1);
     var resources = search.includes("&") ? search.split("&") : [];
     resources = Object.fromEntries(resources.map((s) => s.split("=")));
+    var formElement = document.querySelectorAll(".u_content_form")[0];
     var url = "http://localhost:1337/exportlandingpage?landingpage=ba0ee1cf544a346f6322f4c65d7a0f1c9ffb86bed2a3e2d799031010932881d9A/Om+VKFqsnzmv6p0Ih+oA==953f9a376875960216b6cb618755cb6104c154bdd34e9a1c215c8d76ff261edf&utm_source=" + resources["utm_source"] + "&utm_campaign=" + resources["utm_campaign"] + "&utm_medium=" + resources["utm_medium"];
     if (cid) {
       url = url + "&contact_id=" + cid;
@@ -28,9 +29,10 @@
           errorMessageDiv.innerHTML = failureParams;
           errorMessageDiv.style.color = "#ff4500";
           html.appendChild(errorMessageDiv);
-        } setTimeout(function () {
+        } 
+        setTimeout(function () {
           document.getElementById("successdiv").style.display = "none";
-        }, 5000)
+        }, 5000);
       }
     };
     xhttp.open("GET", url, true);
