@@ -10,9 +10,11 @@
     var resources = search.includes("&") ? search.split("&") : [];
     resources = Object.fromEntries(resources.map((s) => s.split("=")));
     var formElement = document.querySelectorAll(".u_content_form")[0];
-    var url = "https://optimus.factoreal.info/api/v1/exportlandingpage?landingpage=c6cf9a82a50f3ad1c8f9fcb2515bf412a84f69186955244094228c503df568f4D/wCOUkc3KXDPWwsJrzGvA==993ea113c8a7e102ae26c3cb2dc020d841f676fc1e64f7b94aeee24c0e1da0bd&utm_source=" + resources["utm_source"] + "&utm_campaign=" + resources["utm_campaign"] + "&utm_medium=" + resources["utm_medium"];
+    var url = "http://localhost:1337/exportlandingpage?landingpage=ba0ee1cf544a346f6322f4c65d7a0f1c9ffb86bed2a3e2d799031010932881d9A/Om+VKFqsnzmv6p0Ih+oA==953f9a376875960216b6cb618755cb6104c154bdd34e9a1c215c8d76ff261edf&utm_source=" + resources["utm_source"] + "&utm_campaign=" + resources["utm_campaign"] + "&utm_medium=" + resources["utm_medium"];
     if (cid) {
       url = url + "&contact_id=" + cid;
+    } else if (ftreal) {
+      url = url + "&visitor_id=" + ftreal.getVisitorId();
     } var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
@@ -29,7 +31,7 @@
           var errorMessageDiv = document.createElement("div");
           errorMessageDiv.innerHTML = failureParams;
           errorMessageDiv.style.color = "#ff4500";
-          html.appendChild(errorMessageDiv);
+          formElement.appendChild(errorMessageDiv);
         }
         document.getElementById("landing_page_url").value = location.protocol + location.host + location.pathname;
         if (redirectParams) {
