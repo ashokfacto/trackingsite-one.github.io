@@ -42,7 +42,8 @@
           errorMessageDiv.innerHTML = failureParams;
           errorMessageDiv.style.color = "#ff4500";
           formElement.appendChild(errorMessageDiv);
-        } document.getElementById("landing_page_url").value = location.protocol + location.host + location.pathname;
+        }
+        document.getElementById("landing_page_url").value = location.protocol + location.host + location.pathname;
         if (redirectParams) {
           window.top.location.href = redirectParams;
         } setTimeout(function () {
