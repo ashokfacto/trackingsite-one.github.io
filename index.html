@@ -22,7 +22,7 @@
     }
     if (cid) {
       url = url + "&contact_id=" + cid;
-    } else if (typeof ftreal) {
+    } else if (typeof ftreal !== undefined) {
       url = url + "&visitor_id=" + ftreal.getVisitorId();
     }
     var xhttp = new XMLHttpRequest();
