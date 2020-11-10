@@ -20,11 +20,9 @@
     if (resources["utm_medium"]) {
       url = url + "&utm_medium=" + resources["utm_medium"];
     }
-    console.log('typeof ftreal')
-    console.log(typeof ftreal)
     if (cid) {
       url = url + "&contact_id=" + cid;
-    } else if (typeof ftreal != "undefined") {
+    } else if (typeof ftreal !== "undefined") {
       url = url + "&visitor_id=" + ftreal.getVisitorId();
     }
     var xhttp = new XMLHttpRequest();
@@ -48,7 +46,8 @@
         document.getElementById("landing_page_url").value = location.protocol + location.host + location.pathname;
         if (redirectParams) {
           window.top.location.href = redirectParams;
-        } setTimeout(function () {
+        } 
+        setTimeout(function () {
           document.getElementById("successdiv").style.display = "none";
         }, 5000);
       }
