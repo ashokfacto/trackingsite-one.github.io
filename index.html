@@ -10,17 +10,14 @@
     var resources = search.includes("&") ? search.split("&") : [];
     resources = Object.fromEntries(resources.map((s) => s.split("=")));
     var formElement = document.querySelectorAll(".u_content_form")[0];
-    var url = "http://localhost:1337/exportlandingpage?landingpage=ba0ee1cf544a346f6322f4c65d7a0f1c9ffb86bed2a3e2d799031010932881d9A/Om+VKFqsnzmv6p0Ih+oA==953f9a376875960216b6cb618755cb6104c154bdd34e9a1c215c8d76ff261edf";
+    var url = "https://optimus.factoreal.info/api/v1/exportlandingpage?landingpage=96a706b02ef8bfce41b1af619e30f6a3a99a0a60d050be80b0cc594dd2278c6dt2gl54wcoF1wtXef5kdYJQ==0c42286ff7d52f11a5780efb0dd6d34d47de4265c49e02fca09df4dcfd5062f6";
     if (resources["utm_source"]) {
       url = url + "&utm_source=" + resources["utm_source"];
-    }
-    if (resources["utm_campaign"]) {
+    } if (resources["utm_campaign"]) {
       url = url + "&utm_campaign=" + resources["utm_campaign"];
-    }
-    if (resources["utm_medium"]) {
+    } if (resources["utm_medium"]) {
       url = url + "&utm_medium=" + resources["utm_medium"];
-    }
-    if (cid) {
+    } if (cid) {
       url = url + "&contact_id=" + cid;
     } else if (typeof ftreal !== "undefined") {
       url = url + "&visitor_id=" + ftreal.getVisitorId();
@@ -37,7 +34,8 @@
           successsMessageDiv.style.textAlign = "center";
           successsMessageDiv.style.fontSize = "20px";
           formElement.insertBefore(successsMessageDiv, formElement.childNodes[0]);
-        } if (failureParams) {
+        }
+        if (failureParams) {
           var errorMessageDiv = document.createElement("div");
           errorMessageDiv.innerHTML = failureParams;
           errorMessageDiv.style.color = "#ff4500";
@@ -46,7 +44,7 @@
         document.getElementById("landing_page_url").value = location.protocol + location.host + location.pathname;
         if (redirectParams) {
           window.top.location.href = redirectParams;
-        } 
+        }
         setTimeout(function () {
           document.getElementById("successdiv").style.display = "none";
         }, 5000);
