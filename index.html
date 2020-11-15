@@ -10,6 +10,8 @@
 		var resources = search.includes("&") ? search.split("&") : [];
 		resources = Object.fromEntries(resources.map((s) => s.split("=")));
 		var formElement = document.getElementById(6);
+		console.log('formElement')
+		console.log(formElement)
 		var url = "http://localhost:1337/exportlandingpage?landingpage=370f86c05e2cf84a40ea0e8d920f463ecfb9fb9ea9d07051b5b84d2f9397eac4OICi0IdgGmxBUgbvFIKFMA==383a04ac03eab53648d43c4076451d7b764e40d039998ee8d10d84768f434223";
 		if (resources["utm_source"]) {
 			url = url + "&utm_source=" + resources["utm_source"];
