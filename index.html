@@ -9,7 +9,7 @@
 		var search = window.location.search.slice(1);
 		var resources = search.includes("&") ? search.split("&") : [];
 		resources = Object.fromEntries(resources.map((s) => s.split("=")));
-		var url = "http://localhost:1337/exportlandingpage?landingpage=370f86c05e2cf84a40ea0e8d920f463ecfb9fb9ea9d07051b5b84d2f9397eac4OICi0IdgGmxBUgbvFIKFMA==383a04ac03eab53648d43c4076451d7b764e40d039998ee8d10d84768f434223";
+		var url = "https://optimus.factoreal.info/api/v1/exportlandingpage?landingpage=96a706b02ef8bfce41b1af619e30f6a3a99a0a60d050be80b0cc594dd2278c6dt2gl54wcoF1wtXef5kdYJQ==0c42286ff7d52f11a5780efb0dd6d34d47de4265c49e02fca09df4dcfd5062f6";
 		if (resources["utm_source"]) {
 			url = url + "&utm_source=" + resources["utm_source"];
 		} if (resources["utm_campaign"]) {
@@ -20,11 +20,12 @@
 			url = url + "&contact_id=" + cid;
 		} else if (typeof ftreal !== "undefined") {
 			url = url + "&visitor_id=" + ftreal.getVisitorId();
-		} var xhttp = new XMLHttpRequest();
+		}
+		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
 				document.getElementById("factoreal-landing-page").innerHTML = this.responseText;
-				var formElement = document.getElementById(6);
+				var formElement = document.getElementById(18);
 				if (successParams) {
 					var successsMessageDiv = document.createElement("div");
 					successsMessageDiv.id = "successdiv";
@@ -33,15 +34,18 @@
 					successsMessageDiv.style.textAlign = "center";
 					successsMessageDiv.style.fontSize = "20px";
 					formElement.insertBefore(successsMessageDiv, formElement.childNodes[0]);
-				} if (failureParams) {
+				}
+				if (failureParams) {
 					var errorMessageDiv = document.createElement("div");
 					errorMessageDiv.innerHTML = failureParams;
 					errorMessageDiv.style.color = "#ff4500";
 					formElement.appendChild(errorMessageDiv);
-				} document.getElementsByName("landing_page_url")[0].value = location.protocol + "//" + location.host + location.pathname;
+				}
+				document.getElementsByName("landing_page_url")[0].value = location.protocol + "//" + location.host + location.pathname;
 				if (redirectParams) {
 					window.top.location.href = redirectParams;
-				} setTimeout(function () {
+				}
+				setTimeout(function () {
 					document.getElementById("successdiv").style.display = "none";
 				}, 5000);
 			}
