@@ -6,7 +6,7 @@
 		var failureParams = page_url.searchParams.get("messages");
 		var cid = page_url.searchParams.get("cid");
 		var successParams = page_url.searchParams.get("rval");
-		var divId = page_url.searchParams.get("form_div");
+		var divId = page_url.searchParams.get("rval_pos");
 		var search = window.location.search.slice(1);
 		var resources = search.includes("&") ? search.split("&") : [];
 		resources = Object.fromEntries(resources.map((s) => s.split("=")));
@@ -21,7 +21,8 @@
 			url = url + "&contact_id=" + cid;
 		} else if (typeof ftreal !== "undefined") {
 			url = url + "&visitor_id=" + ftreal.getVisitorId();
-		} var xhttp = new XMLHttpRequest();
+		}
+		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
 				document.getElementById("factoreal-landing-page").innerHTML = this.responseText;
@@ -49,8 +50,5 @@
 					document.getElementById("successdiv").style.display = "none";
 				}, 5000);
 			}
-		};
-		xhttp.open("GET", url, true);
-		xhttp.send();
-	</script>
+		}; xhttp.open("GET", url, true); xhttp.send();      </script>
 </div>
