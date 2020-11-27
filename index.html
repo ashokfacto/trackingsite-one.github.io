@@ -10,7 +10,7 @@
 		var search = window.location.search.slice(1);
 		var resources = search.includes("&") ? search.split("&") : [];
 		resources = Object.fromEntries(resources.map((s) => s.split("=")));
-		var url = "http://localhost:1337/exportlandingpage?landingpage=44e822db9c14dcad544ae3f14d6a9e26bf29023049847a493e8f7c58ce5f6cacyWoN055gks4uIVrLRsbKtw==6de69569d120f97e9bd711a31fc39be6836adefc1db07c3f90fa5d27cb626699";
+		var url = "http://340135beb97f.ngrok.io/exportlandingpage?landingpage=44e822db9c14dcad544ae3f14d6a9e26bf29023049847a493e8f7c58ce5f6cacyWoN055gks4uIVrLRsbKtw==6de69569d120f97e9bd711a31fc39be6836adefc1db07c3f90fa5d27cb626699";
 		if (resources["utm_source"]) {
 			url = url + "&utm_source=" + resources["utm_source"];
 		} if (resources["utm_campaign"]) {
