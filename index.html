@@ -69,6 +69,8 @@
                   ).innerHTML = this.responseText;
                   var formElement = document.getElementById(divId);
                   if (successParams) {
+                    document.getElementById("landingpage_form_73").innerHTML =
+                      "";
                     var successsMessageDiv = document.createElement("div");
                     successsMessageDiv.innerHTML = successParams;
                     successsMessageDiv.style.color = "#4BB543";
@@ -78,9 +80,6 @@
                       successsMessageDiv,
                       formElement.childNodes[0]
                     );
-                    document.getElementById(
-                      "landingpage_form_73"
-                    ).innerHTML = successsMessageDiv;
                   }
                   if (failureParams) {
                     var errorMessageDiv = document.createElement("div");
