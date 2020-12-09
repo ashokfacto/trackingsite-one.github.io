@@ -88,11 +88,7 @@
                     formElement.appendChild(errorMessageDiv);
                   }
                   if (document.getElementsByName("landing_page_url")) {
-                    document.getElementsByName("landing_page_url")[0].value =
-                      location.protocol +
-                      "//" +
-                      location.host +
-                      location.pathname;
+                    document.getElementsByName("landing_page_url")[0].value = location.protocol + "//" + location.host + location.pathname;
                   }
                   if (redirectParams) {
                     window.top.location.href = redirectParams;
