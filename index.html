@@ -87,11 +87,13 @@
                     errorMessageDiv.style.color = "#ff4500";
                     formElement.appendChild(errorMessageDiv);
                   }
-                  document.getElementsByName("landing_page_url")[0].value =
-                    location.protocol +
-                    "//" +
-                    location.host +
-                    location.pathname;
+                  if (document.getElementsByName("landing_page_url")) {
+                    document.getElementsByName("landing_page_url")[0].value =
+                      location.protocol +
+                      "//" +
+                      location.host +
+                      location.pathname;
+                  }
                   if (redirectParams) {
                     window.top.location.href = redirectParams;
                   }
