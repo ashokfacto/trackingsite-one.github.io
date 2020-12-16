@@ -32,7 +32,7 @@
         </div>
         <div class="col-md-6">
           <div style="height: 100%; overflow: scroll; overflow-x: scroll">
-            <div id="factoreal-landing-page_101"></div>
+            <div id="factoreal-landing-page_90"></div>
             <script>
               var page_url = new URL(location.href);
               var redirectParams = page_url.searchParams.get("rdir");
@@ -46,7 +46,7 @@
                 resources.map((s) => s.split("="))
               );
               var url =
-                "https://optimus.factoreal.info/api/v1/exportlandingpage?landingpage=4ba6065d4193e99d33a95324b49bb8a564b8eb7292dc0e1d8f5ed696cd86a037OiaT/AjcbDKxK23QXnvZMw==070a02b8bd69cfe2e4cb0d49d762e7aa64d7fd6068d07b4061adf8a1b51b9ae2";
+                "https://optimus.factoreal.info/api/v1/exportlandingpage?landingpage=a1e3fc2e4b1f39416d1dcbaf9cae95b435b439b83e7706afc75a59d55fadf962jnxkI8Ns1Bjn/nyipklHWg==66bbcd249ba1d967dc43cf955d4d03d7da6d30af535d2b733788fb42ec307b0f";
               if (resources["utm_source"]) {
                 url = url + "&utm_source=" + resources["utm_source"];
               }
@@ -73,11 +73,11 @@
               xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                   document.getElementById(
-                    "factoreal-landing-page_101"
+                    "factoreal-landing-page_90"
                   ).innerHTML = this.responseText;
                   var formElement = document.getElementById(divId);
                   if (successParams) {
-                    document.getElementById("landingpage_form_101").innerHTML =
+                    document.getElementById("landingpage_form_90").innerHTML =
                       "";
                     var successsMessageDiv = document.createElement("div");
                     successsMessageDiv.innerHTML = successParams;
@@ -115,68 +115,6 @@
         </div>
       </div>
     </div>
-    <!-- <div style="height: 100%; overflow: scroll; overflow-x: scroll;">
-		<div id="factoreal-landing-page_93"></div>
-		<script>
-			var page_url = new URL(location.href);
-			var redirectParams = page_url.searchParams.get("rdir");
-			var failureParams = page_url.searchParams.get("messages");
-			var cid = page_url.searchParams.get("cid");
-			var successParams = page_url.searchParams.get("rval");
-			var divId = page_url.searchParams.get("rval_pos");
-			var search = window.location.search.slice(1);
-			var resources = search.includes("&") ? search.split("&") : [];
-			resources = Object.fromEntries(resources.map((s) => s.split("=")));
-			var url = "https://optimus.factoreal.info/api/v1/exportlandingpage?landingpage=5333c79e706f4ac05c16bea158618c1f40e25cb2444b7f97cb3c331036c0a5d44L6tWC/Hm5xoO4N4dYRUPA==75d95666aacea41be4dc659b077acc5278750579424e737d61106de89682ea84";
-			if (resources["utm_source"]) {
-				url = url + "&utm_source=" + resources["utm_source"];
-			}
-			if (resources["utm_campaign"]) {
-				url = url + "&utm_campaign=" + resources["utm_campaign"];
-			}
-			if (resources["utm_medium"]) {
-				url = url + "&utm_medium=" + resources["utm_medium"];
-			}
-			if (cid) {
-				url = url + "&contact_id=" + cid;
-			}
-			if (typeof ftreal === "object") {
-				url = url + "&visitor_id=" + ftreal.getVisitorId();
-			}
-			var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function () {
-				if (this.readyState == 4 && this.status == 200) {
-					document.getElementById("factoreal-landing-page_93").innerHTML = this.responseText;
-					var formElement = document.getElementById(divId);
-					if (successParams) {
-						document.getElementById("landingpage_form_93").style.display = "none";
-						var successsMessageDiv = document.createElement("div");
-						successsMessageDiv.innerHTML = successParams;
-						successsMessageDiv.style.color = '#4BB543';
-						successsMessageDiv.style.textAlign = "center";
-						successsMessageDiv.style.fontSize = "20px";
-						formElement.insertBefore(successsMessageDiv, formElement.childNodes[0]);
-					}
-					if (failureParams) {
-						var errorMessageDiv = document.createElement("div");
-						errorMessageDiv.innerHTML = failureParams;
-						errorMessageDiv.style.color = "#ff4500";
-						formElement.appendChild(errorMessageDiv);
-					}
-					document.getElementsByName("landing_page_url")[0].value = location.protocol + "//" + location.host + location.pathname;
-					if (redirectParams) {
-						window.top.location.href = redirectParams;
-					}
-				}
-			};
-			xhttp.open("GET", url, true);
-			xhttp.send();
-		</script>
-	</div> -->
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
