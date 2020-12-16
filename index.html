@@ -84,10 +84,7 @@
                     successsMessageDiv.style.color = "#000000";
                     successsMessageDiv.style.textAlign = "center";
                     successsMessageDiv.style.fontSize = "20px";
-                    formElement.insertBefore(
-                      successsMessageDiv,
-                      formElement.childNodes[0]
-                    );
+                    formElement.append(successsMessageDiv);
                   }
                   if (failureParams) {
                     var errorMessageDiv = document.createElement("div");
