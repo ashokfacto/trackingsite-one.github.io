@@ -84,7 +84,9 @@
                     successsMessageDiv.style.color = "#000000";
                     successsMessageDiv.style.textAlign = "center";
                     successsMessageDiv.style.fontSize = "20px";
-                    formElement.appendChild(successsMessageDiv);
+                    document.getElementById(
+                      "landingpage_form_67"
+                    ).innerHTML = `${successsMessageDiv}`;
                   }
                   if (failureParams) {
                     var errorMessageDiv = document.createElement("div");
