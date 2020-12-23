@@ -41,24 +41,32 @@
               var successParams = page_url.searchParams.get("rval");
               var divId = page_url.searchParams.get("rval_pos");
               var search = window.location.search.slice(1);
-              console.log("search");
-              console.log(search);
+              var utmSrc, utmMed, utmCamp;
               var resources = search.includes("&") ? search.split("&") : [];
-              console.log("resources");
-              console.log(resources);
-              resources = Object.fromEntries(
-                resources.map((s) => s.split("="))
-              );
+              resources.forEach((el) => {
+                if (el.includes("utm_source")) {
+                  utmSrc = el.split("=")[1];
+                }
+                if (el.includes("utm_campaign")) {
+                  utmCamp = el.split("=")[1];
+                }
+                if (el.includes("utm_medium")) {
+                  utmMed = el.split("=")[1];
+                }
+              });
+              // resources = Object.fromEntries(
+              //   resources.map((s) => s.split("="))
+              // );
               var url =
                 "https://optimus.factoreal.info/api/v1/exportlandingpage?landingpage=448b98beb70427fdd1badba1b5f7463f5fe9c82ccd38dcb767b49156c003ae695mXFWQDLraQ5qJrR/UdK9g==6d50f06111046e5e5d4fa0ef90d66680496f73389184101967af65531b147d65";
-              if (resources["utm_source"]) {
-                url = url + "&utm_source=" + resources["utm_source"];
+              if (utmSrc) {
+                url = url + "&utm_source=" + utmSrc;
               }
-              if (resources["utm_campaign"]) {
-                url = url + "&utm_campaign=" + resources["utm_campaign"];
+              if (utmCamp) {
+                url = url + "&utm_campaign=" + utmCamp;
               }
-              if (resources["utm_medium"]) {
-                url = url + "&utm_medium=" + resources["utm_medium"];
+              if (utmMed) {
+                url = url + "&utm_medium=" + utmMed;
               }
               if (cid) {
                 url = url + "&contact_id=" + cid;
