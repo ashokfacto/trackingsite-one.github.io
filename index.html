@@ -41,6 +41,8 @@
               var successParams = page_url.searchParams.get("rval");
               var divId = page_url.searchParams.get("rval_pos");
               var search = window.location.search.slice(1);
+              console.log("search");
+              console.log(search);
               var resources = search.includes("&") ? search.split("&") : [];
               console.log("resources");
               console.log(resources);
