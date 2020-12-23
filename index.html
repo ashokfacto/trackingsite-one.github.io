@@ -43,7 +43,7 @@
               var search = window.location.search.slice(1);
               var utmSrc, utmMed, utmCamp;
               var resources = search.includes("&") ? search.split("&") : [];
-              resources.forEach((el) => {
+              resources.forEach(function (el) {
                 if (el.includes("utm_source")) {
                   utmSrc = el.split("=")[1];
                 }
@@ -54,9 +54,6 @@
                   utmMed = el.split("=")[1];
                 }
               });
-              // resources = Object.fromEntries(
-              //   resources.map((s) => s.split("="))
-              // );
               var url =
                 "https://optimus.factoreal.info/api/v1/exportlandingpage?landingpage=448b98beb70427fdd1badba1b5f7463f5fe9c82ccd38dcb767b49156c003ae695mXFWQDLraQ5qJrR/UdK9g==6d50f06111046e5e5d4fa0ef90d66680496f73389184101967af65531b147d65";
               if (utmSrc) {
