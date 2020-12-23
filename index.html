@@ -42,6 +42,8 @@
               var divId = page_url.searchParams.get("rval_pos");
               var search = window.location.search.slice(1);
               var resources = search.includes("&") ? search.split("&") : [];
+              console.log("resources");
+              console.log(resources);
               resources = Object.fromEntries(
                 resources.map((s) => s.split("="))
               );
