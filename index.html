@@ -1,9 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Bootstrap CSS -->
     <link
@@ -74,7 +77,7 @@
             ).innerHTML = this.responseText;
             var formElement = document.getElementById(divId);
             if (successParams && formElement) {
-              document.getElementById("landingpage_form_123").innerHTML = "";
+              document.getElementById(divId).innerHTML = "";
               var successsMessageDiv = document.createElement("div");
               successsMessageDiv.innerHTML = successParams;
               successsMessageDiv.style.color = "#000000";
@@ -172,7 +175,7 @@
             ).innerHTML = this.responseText;
             var formElement = document.getElementById(divId);
             if (successParams && formElement) {
-              document.getElementById("landingpage_form_122").innerHTML = "";
+              document.getElementById(divId).innerHTML = "";
               var successsMessageDiv = document.createElement("div");
               successsMessageDiv.innerHTML = successParams;
               successsMessageDiv.style.color = "#000000";
@@ -268,7 +271,7 @@
             ).innerHTML = this.responseText;
             var formElement = document.getElementById(divId);
             if (successParams && formElement) {
-              document.getElementById("landingpage_form_124").innerHTML = "";
+              document.getElementById(divId).innerHTML = "";
               var successsMessageDiv = document.createElement("div");
               successsMessageDiv.innerHTML = successParams;
               successsMessageDiv.style.color = "#000000";
