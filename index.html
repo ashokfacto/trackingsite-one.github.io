@@ -73,7 +73,7 @@
               "factoreal-landing-page_123"
             ).innerHTML = this.responseText;
             var formElement = document.getElementById(divId);
-            if (successParams) {
+            if (successParams && formElement) {
               document.getElementById("landingpage_form_123").innerHTML = "";
               var successsMessageDiv = document.createElement("div");
               successsMessageDiv.innerHTML = successParams;
@@ -171,7 +171,7 @@
               "factoreal-landing-page_122"
             ).innerHTML = this.responseText;
             var formElement = document.getElementById(divId);
-            if (successParams) {
+            if (successParams && formElement) {
               document.getElementById("landingpage_form_122").innerHTML = "";
               var successsMessageDiv = document.createElement("div");
               successsMessageDiv.innerHTML = successParams;
@@ -267,7 +267,7 @@
               "factoreal-landing-page_124"
             ).innerHTML = this.responseText;
             var formElement = document.getElementById(divId);
-            if (successParams) {
+            if (successParams && formElement) {
               document.getElementById("landingpage_form_124").innerHTML = "";
               var successsMessageDiv = document.createElement("div");
               successsMessageDiv.innerHTML = successParams;
