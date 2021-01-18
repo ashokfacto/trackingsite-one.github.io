@@ -76,8 +76,11 @@
               "factoreal-landing-page_123"
             ).innerHTML = this.responseText;
             var formElement = document.getElementById(divId);
-            if (successParams && formElement) {
-              document.getElementById(divId).innerHTML = "";
+            var doc = document.getElementById(`landingpage_form_${id}`);
+            if (successParams && formElement && doc) {
+              console.log("doc1");
+              console.log(doc);
+              doc.innerHTML = "";
               var successsMessageDiv = document.createElement("div");
               successsMessageDiv.innerHTML = successParams;
               successsMessageDiv.style.color = "#000000";
@@ -174,8 +177,11 @@
               "factoreal-landing-page_122"
             ).innerHTML = this.responseText;
             var formElement = document.getElementById(divId);
-            if (successParams && formElement) {
-              document.getElementById(divId).innerHTML = "";
+            var doc = document.getElementById(`landingpage_form_${id}`);
+            if (successParams && formElement && doc) {
+              console.log("doc2");
+              console.log(doc);
+              doc.innerHTML = "";
               var successsMessageDiv = document.createElement("div");
               successsMessageDiv.innerHTML = successParams;
               successsMessageDiv.style.color = "#000000";
@@ -270,8 +276,11 @@
               "factoreal-landing-page_124"
             ).innerHTML = this.responseText;
             var formElement = document.getElementById(divId);
-            if (successParams && formElement) {
-              document.getElementById(divId).innerHTML = "";
+            var doc = document.getElementById(`landingpage_form_${id}`);
+            if (successParams && formElement && doc) {
+              console.log("doc3");
+              console.log(doc);
+              doc.innerHTML = "";
               var successsMessageDiv = document.createElement("div");
               successsMessageDiv.innerHTML = successParams;
               successsMessageDiv.style.color = "#000000";
