@@ -77,7 +77,7 @@
             ).innerHTML = this.responseText;
             var formElement = document.getElementById(divId);
             var doc = document.getElementById(`${divId}`);
-            if (successParams && formElement && doc) {
+            if (successParams && formElement && doc && doc.innerHTML !== "") {
               console.log("doc1");
               console.log(doc);
               doc.innerHTML = "";
@@ -178,7 +178,7 @@
             ).innerHTML = this.responseText;
             var formElement = document.getElementById(divId);
             var doc = document.getElementById(`${divId}`);
-            if (successParams && formElement && doc) {
+            if (successParams && formElement && doc && doc.innerHTML !== "") {
               console.log("doc2");
               console.log(doc);
               doc.innerHTML = "";
@@ -277,7 +277,7 @@
             ).innerHTML = this.responseText;
             var formElement = document.getElementById(divId);
             var doc = document.getElementById(`${divId}`);
-            if (successParams && formElement && doc) {
+            if (successParams && formElement && doc && doc.innerHTML !== "") {
               console.log("doc3");
               console.log(doc);
               doc.innerHTML = "";
