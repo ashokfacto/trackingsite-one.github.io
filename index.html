@@ -123,9 +123,15 @@
               document.getElementsByName("landing_page_url").length &&
               window.location
             ) {
+              console.log(
+                "Inside the if for landing page url in  1st script",
+                document.getElementsByName("landing_page_url").length
+              );
               document
                 .getElementsByName("landing_page_url")
-                .forEach(function (obj) {
+                .forEach(function (obj, index) {
+                  console.log("index in  1st script");
+                  console.log(index);
                   obj.value =
                     window.location.protocol +
                     "//" +
@@ -255,9 +261,15 @@
               document.getElementsByName("landing_page_url").length &&
               window.location
             ) {
+              console.log(
+                "Inside the if for landing page url in  2nd script",
+                document.getElementsByName("landing_page_url").length
+              );
               document
                 .getElementsByName("landing_page_url")
-                .forEach(function (obj) {
+                .forEach(function (obj, index) {
+                  console.log("index in  2nd script");
+                  console.log(index);
                   obj.value =
                     window.location.protocol +
                     "//" +
@@ -386,9 +398,15 @@
               document.getElementsByName("landing_page_url").length &&
               window.location
             ) {
+              console.log(
+                "Inside the if for landing page url in 3rd script",
+                document.getElementsByName("landing_page_url").length
+              );
               document
                 .getElementsByName("landing_page_url")
-                .forEach(function (obj) {
+                .forEach(function (obj, index) {
+                  console.log("index in  3rd script");
+                  console.log(index);
                   obj.value =
                     window.location.protocol +
                     "//" +
