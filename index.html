@@ -75,9 +75,14 @@
             document.getElementById(
               "factoreal-landing-page_123"
             ).innerHTML = this.responseText;
+            console.log(divId, "div-----------------------> 1");
             var formElement = document.getElementById(divId);
+            console.log(formElement, "formElement@@@@@@@@@@@@@@@@@@@@@");
             if (successParams && formElement) {
+              console.log("Inside formElement if", formElement);
               formElement.innerHTML = "";
+              console.log("formElement -----------------> 1");
+              console.log(formElement);
               var successsMessageDiv = document.createElement("div");
               successsMessageDiv.innerHTML = successParams;
               successsMessageDiv.style.color = "#000000";
@@ -173,9 +178,14 @@
             document.getElementById(
               "factoreal-landing-page_122"
             ).innerHTML = this.responseText;
+            console.log(divId, "div-----------------------> 2");
             var formElement = document.getElementById(divId);
+            console.log("formElement&&&&&&&&&&&&&&&&&&&&&&");
+            console.log(formElement);
             if (successParams && formElement) {
               formElement.innerHTML = "";
+              console.log("formElement$$$$$$$$$$$$$$$$$$$");
+              console.log(formElement);
               var successsMessageDiv = document.createElement("div");
               successsMessageDiv.innerHTML = successParams;
               successsMessageDiv.style.color = "#000000";
@@ -269,9 +279,15 @@
             document.getElementById(
               "factoreal-landing-page_124"
             ).innerHTML = this.responseText;
+            console.log(divId, "div-----------------------> 3");
             var formElement = document.getElementById(divId);
+            console.log(formElement, "fomrelement ------------------> 3");
             if (successParams && formElement) {
               formElement.innerHTML = "";
+              console.log(
+                formElement,
+                "fomrelement *****************************"
+              );
               var successsMessageDiv = document.createElement("div");
               successsMessageDiv.innerHTML = successParams;
               successsMessageDiv.style.color = "#000000";
