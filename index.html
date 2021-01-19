@@ -78,6 +78,7 @@
             var formElement = document.getElementById(divId);
             if (successParams && formElement) {
               formElement.innerHTML = "";
+              var successsMessageDiv = document.createElement("div");
               successsMessageDiv.innerHTML = successParams;
               successsMessageDiv.style.color = "#000000";
               successsMessageDiv.style.textAlign = "center";
