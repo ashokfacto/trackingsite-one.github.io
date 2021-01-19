@@ -22,19 +22,28 @@
     <h1>Hello, world!</h1>
 
     <div style="height: 100%; overflow: scroll; overflow-x: scroll">
-      <div id="factoreal-landing-page_155"></div>
+      <div id="factoreal-landing-page_123"></div>
       <script>
+        console.log("Script 1 into execution");
         var page_url = new URL(location.href);
+        console.log(page_url, "pageurl ---------------> 1");
         var redirectParams = page_url.searchParams.get("rdir");
+        console.log(redirectParams, "redirectParams ---------------> 1");
         var failureParams = page_url.searchParams.get("messages");
+        console.log(failureParams, "failureParams ---------------> 1");
         var cid = page_url.searchParams.get("cid");
+        console.log(cid, "cid ---------------> 1");
         var successParams = page_url.searchParams.get("rval");
+        console.log(successParams, "successParams ---------------> 1");
         var divId = page_url.searchParams.get("rval_pos");
+        console.log(divId, "divId ---------------> 1");
         var search = window.location.search.slice(1);
+        console.log(search, "search ---------------> 1");
         var utmSrc = "",
           utmMed = "",
           utmCamp = "";
         var resources = search.includes("&") ? search.split("&") : [];
+        console.log(resources, "resources ---------------> 1");
         resources.forEach(function (el) {
           if (el.includes("utm_source")) {
             utmSrc = el.split("=")[1];
@@ -60,6 +69,7 @@
         if (cid) {
           url = url + "&contact_id=" + cid;
         }
+        console.log(url, "url ---------------> 1");
         if (window.document.cookie) {
           var cookieArr = document.cookie.split(";");
           for (var i = 0; i < cookieArr.length; i++) {
@@ -69,15 +79,24 @@
             }
           }
         }
+        console.log(url, "url ---------------> 11");
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
             document.getElementById(
-              "factoreal-landing-page_155"
+              "factoreal-landing-page_123"
             ).innerHTML = this.responseText;
+            console.log(divId, "div-----------------------> 1");
             var formElement = document.getElementById(divId);
+            console.log(formElement, "formElement --------------------> 1");
             if (successParams && formElement) {
+              console.log(
+                "Inside formElement if --------------->1",
+                formElement
+              );
               formElement.innerHTML = "";
+              console.log("formElement inside if -----------------> 11");
+              console.log(formElement);
               var successsMessageDiv = document.createElement("div");
               successsMessageDiv.innerHTML = successParams;
               successsMessageDiv.style.color = "#000000";
@@ -85,20 +104,34 @@
               successsMessageDiv.style.fontSize = "20px";
               formElement.appendChild(successsMessageDiv);
             }
+            console.log(
+              formElement,
+              "formelement after successif----------------------> 1"
+            );
             if (failureParams) {
               var errorMessageDiv = document.createElement("div");
               errorMessageDiv.innerHTML = failureParams;
               errorMessageDiv.style.color = "#ff4500";
               formElement.appendChild(errorMessageDiv);
             }
+            console.log(
+              formElement,
+              "formelement after failureif----------------------> 1"
+            );
             if (
               !successParams &&
               document.getElementsByName("landing_page_url").length &&
               window.location
             ) {
+              console.log(
+                "Inside the if for landing page url in  1st script",
+                document.getElementsByName("landing_page_url").length
+              );
               document
                 .getElementsByName("landing_page_url")
-                .forEach(function (obj) {
+                .forEach(function (obj, index) {
+                  console.log("index in  1st script");
+                  console.log(index);
                   obj.value =
                     window.location.protocol +
                     "//" +
@@ -109,10 +142,16 @@
             if (redirectParams) {
               window.top.location.href = redirectParams;
             }
+            console.log(
+              redirectParams,
+              "redirectParams after redirectParams if----------------------> 1"
+            );
           }
         };
+        console.log(url, "url ----------------------------->1");
         xhttp.open("GET", url, true);
         xhttp.send();
+        console.log("end of script 1");
       </script>
     </div>
 
@@ -124,19 +163,28 @@
     <p>Going to next line</p>
 
     <div style="height: 100%; overflow: scroll; overflow-x: scroll">
-      <div id="factoreal-landing-page_159"></div>
+      <div id="factoreal-landing-page_122"></div>
       <script>
+        console.log("Script 2 into execution");
         var page_url = new URL(location.href);
+        console.log(page_url, "pageurl ---------------> 2");
         var redirectParams = page_url.searchParams.get("rdir");
+        console.log(redirectParams, "redirectParams ---------------> 2");
         var failureParams = page_url.searchParams.get("messages");
+        console.log(failureParams, "failureParams ---------------> 2");
         var cid = page_url.searchParams.get("cid");
+        console.log(cid, "cid ---------------> 2");
         var successParams = page_url.searchParams.get("rval");
+        console.log(successParams, "successParams ---------------> 2");
         var divId = page_url.searchParams.get("rval_pos");
+        console.log(divId, "divId ---------------> 2");
         var search = window.location.search.slice(1);
+        console.log(search, "search ---------------> 2");
         var utmSrc = "",
           utmMed = "",
           utmCamp = "";
         var resources = search.includes("&") ? search.split("&") : [];
+        console.log(resources, "resources ---------------> 2");
         resources.forEach(function (el) {
           if (el.includes("utm_source")) {
             utmSrc = el.split("=")[1];
@@ -162,6 +210,7 @@
         if (cid) {
           url = url + "&contact_id=" + cid;
         }
+        console.log(url, "url ---------------> 2");
         if (window.document.cookie) {
           var cookieArr = document.cookie.split(";");
           for (var i = 0; i < cookieArr.length; i++) {
@@ -171,15 +220,21 @@
             }
           }
         }
+        console.log(url, "url ---------------> 22");
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
             document.getElementById(
-              "factoreal-landing-page_159"
+              "factoreal-landing-page_122"
             ).innerHTML = this.responseText;
+            console.log(divId, "divId-----------------------> 2");
             var formElement = document.getElementById(divId);
+            console.log("formElement ----------------------->2");
+            console.log(formElement);
             if (successParams && formElement) {
               formElement.innerHTML = "";
+              console.log("formElement inside if -------------> 2");
+              console.log(formElement);
               var successsMessageDiv = document.createElement("div");
               successsMessageDiv.innerHTML = successParams;
               successsMessageDiv.style.color = "#000000";
@@ -187,20 +242,34 @@
               successsMessageDiv.style.fontSize = "20px";
               formElement.appendChild(successsMessageDiv);
             }
+            console.log(
+              formElement,
+              "formElement after successif -------------> 22"
+            );
             if (failureParams) {
               var errorMessageDiv = document.createElement("div");
               errorMessageDiv.innerHTML = failureParams;
               errorMessageDiv.style.color = "#ff4500";
               formElement.appendChild(errorMessageDiv);
             }
+            console.log(
+              formElement,
+              "formElement after failureif -------------> 22"
+            );
             if (
               !successParams &&
               document.getElementsByName("landing_page_url").length &&
               window.location
             ) {
+              console.log(
+                "Inside the if for landing page url in  2nd script",
+                document.getElementsByName("landing_page_url").length
+              );
               document
                 .getElementsByName("landing_page_url")
-                .forEach(function (obj) {
+                .forEach(function (obj, index) {
+                  console.log("index in  2nd script");
+                  console.log(index);
                   obj.value =
                     window.location.protocol +
                     "//" +
@@ -211,10 +280,16 @@
             if (redirectParams) {
               window.top.location.href = redirectParams;
             }
+            console.log(
+              redirectParams,
+              "redirectParams after redirectParams if----------------------> 2"
+            );
           }
         };
+        console.log(url, "url before call -------------> 22");
         xhttp.open("GET", url, true);
         xhttp.send();
+        console.log("End of script 2");
       </script>
     </div>
 
@@ -224,19 +299,28 @@
     <p>Next</p>
 
     <div style="height: 100%; overflow: scroll; overflow-x: scroll">
-      <div id="factoreal-landing-page_157"></div>
+      <div id="factoreal-landing-page_124"></div>
       <script>
+        console.log("Script 3 execution begins");
         var page_url = new URL(location.href);
+        console.log(page_url, "pageurl ---------------> 3");
         var redirectParams = page_url.searchParams.get("rdir");
+        console.log(redirectParams, "redirectParams ---------------> 3");
         var failureParams = page_url.searchParams.get("messages");
+        console.log(failureParams, "failureParams ---------------> 3");
         var cid = page_url.searchParams.get("cid");
+        console.log(cid, "cid ---------------> 3");
         var successParams = page_url.searchParams.get("rval");
+        console.log(successParams, "successParams ---------------> 3");
         var divId = page_url.searchParams.get("rval_pos");
+        console.log(divId, "divId ---------------> 3");
         var search = window.location.search.slice(1);
+        console.log(search, "search ---------------> 3");
         var utmSrc = "",
           utmMed = "",
           utmCamp = "";
         var resources = search.includes("&") ? search.split("&") : [];
+        console.log(resources, "resources ---------------> 3");
         resources.forEach(function (el) {
           if (el.includes("utm_source")) {
             utmSrc = el.split("=")[1];
@@ -262,6 +346,7 @@
         if (cid) {
           url = url + "&contact_id=" + cid;
         }
+        console.log(url, "url ---------------> 3");
         if (window.document.cookie) {
           var cookieArr = document.cookie.split(";");
           for (var i = 0; i < cookieArr.length; i++) {
@@ -271,15 +356,22 @@
             }
           }
         }
+        console.log(url, "url ---------------> 33");
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
             document.getElementById(
-              "factoreal-landing-page_157"
+              "factoreal-landing-page_124"
             ).innerHTML = this.responseText;
+            console.log(divId, "divId-----------------------> 33");
             var formElement = document.getElementById(divId);
+            console.log(formElement, "fomrelement ------------------>3");
             if (successParams && formElement) {
               formElement.innerHTML = "";
+              console.log(
+                formElement,
+                "fomrelement inside if ------------------------>3"
+              );
               var successsMessageDiv = document.createElement("div");
               successsMessageDiv.innerHTML = successParams;
               successsMessageDiv.style.color = "#000000";
@@ -287,20 +379,34 @@
               successsMessageDiv.style.fontSize = "20px";
               formElement.appendChild(successsMessageDiv);
             }
+            console.log(
+              formElement,
+              "formElement after success if ------------------------>3"
+            );
             if (failureParams) {
               var errorMessageDiv = document.createElement("div");
               errorMessageDiv.innerHTML = failureParams;
               errorMessageDiv.style.color = "#ff4500";
               formElement.appendChild(errorMessageDiv);
             }
+            console.log(
+              formElement,
+              "formElement after failureif ------------------------>3"
+            );
             if (
               !successParams &&
               document.getElementsByName("landing_page_url").length &&
               window.location
             ) {
+              console.log(
+                "Inside the if for landing page url in 3rd script",
+                document.getElementsByName("landing_page_url").length
+              );
               document
                 .getElementsByName("landing_page_url")
-                .forEach(function (obj) {
+                .forEach(function (obj, index) {
+                  console.log("index in  3rd script");
+                  console.log(index);
                   obj.value =
                     window.location.protocol +
                     "//" +
@@ -311,10 +417,16 @@
             if (redirectParams) {
               window.top.location.href = redirectParams;
             }
+            console.log(
+              redirectParams,
+              "redirectParams after redirectParams if----------------------> 3"
+            );
           }
         };
+        console.log(url, "url before end of script ------------------------>3");
         xhttp.open("GET", url, true);
         xhttp.send();
+        console.log("End of script 3");
       </script>
     </div>
 
