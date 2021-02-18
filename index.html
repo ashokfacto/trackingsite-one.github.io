@@ -173,6 +173,27 @@
         s.parentNode.insertBefore(g, s);
       })();
     </script>
+    <script>
+      _at.track("event", {
+        category: "A",
+        action: "B",
+        label: "C",
+        value: 1,
+        variables: {
+          name: "value",
+        },
+      });
+    </script>
+    <script>
+      _at.track("event", {
+        category: "Video",
+        action: "Watched",
+        variables: {
+          name: "3 Ways To Leverage Push",
+          url: "https://abc.com/push",
+        },
+      });
+    </script>
     <!-- end webpush tracking code -->
   </body>
 </html>
