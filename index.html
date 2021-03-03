@@ -873,16 +873,30 @@
         },
       });
     </script>
-    <script>
+    <!-- <script>
       _aimtellGetSubscriberID().then(function (id) {
         console.log("_aimtellGetSubscriberID" + id);
       });
+    </script> -->
+    <script>
+      function _aimtellPermissionGranted() {
+        console.log("Wohoo, visitor subscribed to push!");
+      }
+    </script>
+    <script>
+      function _aimtellGetSubscriberID(id) {
+        console.log("_aimtellGetSubscriberID" + id);
+      }
+    </script>
+    <!-- <script>
       _aimtellGetSubscriberIDFromToken(token).then(function (user) {
         console.log("_aimtellGetSubscriberIDFromToken" + user);
       });
+    </script>
+    <script>
       _aimtellGetSubscriberAttributes().then(function (data) {
         console.log("_aimtellGetSubscriberAttributes" + data);
       });
-    </script>
+    </script> -->
   </body>
 </html>
