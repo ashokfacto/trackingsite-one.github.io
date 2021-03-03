@@ -879,14 +879,13 @@
       });
     </script> -->
     <script>
-      function _aimtellPermissionGranted() {
-        console.log("Wohoo, visitor subscribed to push!");
-      }
+      console.log(_aimtellGetSubscriberID());
     </script>
     <script>
-      function _aimtellGetSubscriberID(id) {
-        console.log("_aimtellGetSubscriberID" + id);
-      }
+      console.log(_aimtellGetSubscriberAttributes());
+    </script>
+    <script>
+      console.log(_aimtellCheckPermissions());
     </script>
     <!-- <script>
       _aimtellGetSubscriberIDFromToken(token).then(function (user) {
