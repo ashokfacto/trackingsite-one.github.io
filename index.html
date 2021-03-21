@@ -824,6 +824,7 @@
         </div>
       </div>
     </div>
+    <button onclick="myFunction()">Click me</button>
     <!-- start webpush tracking code -->
     <!-- start webpush tracking code -->
     <script type="text/javascript">
@@ -876,11 +877,13 @@
         },
       });
     </script>
-    <!-- <script>
-      _aimtellGetSubscriberID().then(function (id) {
-        console.log("_aimtellGetSubscriberID" + id);
-      });
-    </script> -->
+  
+    <script>
+      function myFunction() {
+        let x = _aimtellCheckPermissions();
+        console.log(x);
+      }
+    </script>
     <!-- <script>
       _aimtellGetSubscriberIDFromToken(token).then(function (user) {
         console.log("_aimtellGetSubscriberIDFromToken" + user);
