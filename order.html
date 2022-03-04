@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Register</title>
+    <title>Order</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -47,26 +47,8 @@
     <!-- end webpush tracking code -->
   </head>
   <body>
-    <h1>Login Page</h1>
-    <form id="register-form" action="/login.html">
-      <label for="name">First name:</label><br />
-      <input type="text" id="name" name="name" value="" /><br />
-      <label for="email">Email:</label><br />
-      <input id="email" type="email" id="email" name="email" value="" /><br />
-      <label for="email">Password:</label><br />
-      <input type="email" id="email" name="email" value="" /><br /><br />
-      <input type="submit" value="Submit" />
-    </form>
-    <a href="./order.html">Order</a>
-    <a href="./product.html">Product</a>
-    <a href="./login.html">Welcome</a>
-    <script>
-      document
-        .querySelector('#register-form [type="submit"]')
-        .addEventListener("click", function (e) {
-          var email = document.querySelector("#email").value;
-          ftreal.identify(email, {});
-        });
-    </script>
+   <h1>Welcome</h1>
+      <a href="./index.html">Home</a>
+      <a href="./product.html">Product</a>
   </body>
 </html>
