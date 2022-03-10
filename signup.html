@@ -1089,13 +1089,14 @@
               signUpForm.submit();
             });
         });
-
-        grecaptcha
-          .execute(grecaptchaId, { action: "pageload" })
-          .then(function (token) {
-            console.log("pageload reCAPTCHA token", token);
-          });
-
+        
+        grecaptcha.ready(function () {
+          grecaptcha
+            .execute(grecaptchaId, { action: "pageload" })
+            .then(function (token) {
+              console.log("pageload reCAPTCHA token", token);
+            });
+        });
         // grecaptcha.ready(function () {
         //   grecaptcha
         //     .execute("6Lcwk8seAAAAANKpKfcfrHZNs556kAkv8Zoi-hov", {
