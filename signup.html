@@ -15,7 +15,7 @@
 
       var onloadCallback = function () {
         grecaptchaId = grecaptcha.render("myRecaptchaElement", {
-          sitekey: "6Lcwk8seAAAAANKpKfcfrHZNs556kAkv8Zoi-hov",
+          sitekey: "6LeGn8keAAAAAJYwr1Q1KohvjGzjCuOeoXxk2bps ",
           "error-callback": errorHandling,
         });
       };
@@ -1081,7 +1081,7 @@
         signUpForm.submit(function (event) {
           e.preventDefault();
           grecaptcha
-            .execute("6Lcwk8seAAAAANKpKfcfrHZNs556kAkv8Zoi-hov", {
+            .execute("6LeGn8keAAAAAJYwr1Q1KohvjGzjCuOeoXxk2bps ", {
               action: "submit",
             })
             .then(function (token) {
@@ -1089,7 +1089,7 @@
               signUpForm.submit();
             });
         });
-        
+
         grecaptcha.ready(function () {
           grecaptcha
             .execute(grecaptchaId, { action: "pageload" })
@@ -1099,7 +1099,7 @@
         });
         // grecaptcha.ready(function () {
         //   grecaptcha
-        //     .execute("6Lcwk8seAAAAANKpKfcfrHZNs556kAkv8Zoi-hov", {
+        //     .execute("6LeGn8keAAAAAJYwr1Q1KohvjGzjCuOeoXxk2bps ", {
         //       action: "pageload",
         //     })
         //     .then(function (token) {
