@@ -890,6 +890,10 @@
                           />
                         </div>
                       </div>
+                      <div
+                        id="myRecaptchaElement"
+                        class="my-recaptcha-element"
+                      ></div>
                       <div style="text-align: center">
                         <button
                           id="trackPixel"
@@ -1062,7 +1066,7 @@
           e.preventDefault();
           grecaptcha
             .execute("6Lcwk8seAAAAANKpKfcfrHZNs556kAkv8Zoi-hov", {
-              action: "validate_captcha",
+              action: "submit",
             })
             .then(function (token) {
               document.getElementById("token_response").value = token;
@@ -1073,13 +1077,25 @@
         grecaptcha.ready(function () {
           grecaptcha
             .execute("6Lcwk8seAAAAANKpKfcfrHZNs556kAkv8Zoi-hov", {
-              action: "validate_captcha",
+              action: "pageload",
             })
             .then(function (token) {
               document.getElementById("token_response").value = token;
               $("#trackPixel").removeAttr("disabled");
             });
         });
+
+        var grecaptchaId;
+        var errorHandling = function (err) {
+          console.err("reCAPTCHA Error:", err);
+        };
+        var onloadCallback = function () {
+          grecaptchaId = grecaptcha.render("myRecaptchaElement", {
+            sitekey: "6Lcwk8seAAAAANKpKfcfrHZNs556kAkv8Zoi-hov",
+            "error-callback": errorHandling,
+          });
+        };
+
         let url = new URL(window.location.href);
         if (url.searchParams.has("status")) {
           if (url.searchParams.get("status") == "success") {
