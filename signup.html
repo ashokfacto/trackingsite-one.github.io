@@ -8,7 +8,7 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script
-      src="https://www.google.com/recaptcha/api.js?render=6Lcwk8seAAAAANKpKfcfrHZNs556kAkv8Zoi-hov"
+      src="https://www.google.com/recaptcha/api.js?render=explicit&onload=onloadCallback"
       async
       defer
     ></script>
@@ -893,6 +893,9 @@
                       <div
                         id="myRecaptchaElement"
                         class="my-recaptcha-element"
+                        data-sitekey="6LfP0CITAAAAAHq9FOgCo7v_fb0-pmmH9VW3ziFs"
+                        data-action="action"
+                        data-bind="recaptcha-demo-submit"
                       ></div>
                       <div style="text-align: center">
                         <button
@@ -1074,27 +1077,34 @@
             });
         });
 
-        grecaptcha.ready(function () {
-          grecaptcha
-            .execute("6Lcwk8seAAAAANKpKfcfrHZNs556kAkv8Zoi-hov", {
-              action: "pageload",
-            })
-            .then(function (token) {
-              document.getElementById("token_response").value = token;
-              $("#trackPixel").removeAttr("disabled");
-            });
-        });
+        // grecaptcha.ready(function () {
+        //   grecaptcha
+        //     .execute("6Lcwk8seAAAAANKpKfcfrHZNs556kAkv8Zoi-hov", {
+        //       action: "pageload",
+        //     })
+        //     .then(function (token) {
+        //       document.getElementById("token_response").value = token;
+        //       $("#trackPixel").removeAttr("disabled");
+        //     });
+        // });
 
         var grecaptchaId;
         var errorHandling = function (err) {
           console.err("reCAPTCHA Error:", err);
         };
+
         var onloadCallback = function () {
           grecaptchaId = grecaptcha.render("myRecaptchaElement", {
             sitekey: "6Lcwk8seAAAAANKpKfcfrHZNs556kAkv8Zoi-hov",
             "error-callback": errorHandling,
           });
         };
+
+        grecaptcha
+          .execute(grecaptchaId, { action: "pageload" })
+          .then(function (token) {
+            console.log("pageload reCAPTCHA token", token);
+          });
 
         let url = new URL(window.location.href);
         if (url.searchParams.has("status")) {
