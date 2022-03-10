@@ -7,6 +7,19 @@
     <link rel="icon" type="image/png" href="/favicon.ico" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      var grecaptchaId;
+      var errorHandling = function (err) {
+        console.err("reCAPTCHA Error:", err);
+      };
+
+      var onloadCallback = function () {
+        grecaptchaId = grecaptcha.render("myRecaptchaElement", {
+          sitekey: "6Lcwk8seAAAAANKpKfcfrHZNs556kAkv8Zoi-hov",
+          "error-callback": errorHandling,
+        });
+      };
+    </script>
     <script
       src="https://www.google.com/recaptcha/api.js?render=explicit&onload=onloadCallback"
       async
@@ -1060,6 +1073,14 @@
         </div>
       </div>
     </div>
+
+    <script>
+      grecaptcha
+        .execute(grecaptchaId, { action: "pageload" })
+        .then(function (token) {
+          console.log("pageload reCAPTCHA token", token);
+        });
+    </script>
     <script>
       $(document).ready(function () {
         var signUpForm = $("#sign_up_form");
@@ -1085,24 +1106,6 @@
         //       $("#trackPixel").removeAttr("disabled");
         //     });
         // });
-
-        var grecaptchaId;
-        var errorHandling = function (err) {
-          console.err("reCAPTCHA Error:", err);
-        };
-
-        var onloadCallback = function () {
-          grecaptchaId = grecaptcha.render("myRecaptchaElement", {
-            sitekey: "6Lcwk8seAAAAANKpKfcfrHZNs556kAkv8Zoi-hov",
-            "error-callback": errorHandling,
-          });
-        };
-
-        grecaptcha
-          .execute(grecaptchaId, { action: "pageload" })
-          .then(function (token) {
-            console.log("pageload reCAPTCHA token", token);
-          });
 
         let url = new URL(window.location.href);
         if (url.searchParams.has("status")) {
