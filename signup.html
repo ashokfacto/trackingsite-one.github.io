@@ -866,7 +866,7 @@
                             type="text"
                             name="redirectUrl"
                             placeholder="Phone"
-                            value="https://www.factoreal.com/signup.html"
+                            value="https://trackingsiteone.factoreal.info/signup.html"
                             style="
                               border-top-width: 1px;
                               border-top-style: solid;
@@ -1057,6 +1057,19 @@
     </div>
     <script>
       $(document).ready(function () {
+        var signUpForm = $("#sign_up_form");
+        signUpForm.submit(function (event) {
+          e.preventDefault();
+          grecaptcha
+            .execute("6Lcwk8seAAAAANKpKfcfrHZNs556kAkv8Zoi-hov", {
+              action: "validate_captcha",
+            })
+            .then(function (token) {
+              document.getElementById("token_response").value = token;
+              signUpForm.submit();
+            });
+        });
+
         grecaptcha.ready(function () {
           grecaptcha
             .execute("6Lcwk8seAAAAANKpKfcfrHZNs556kAkv8Zoi-hov", {
