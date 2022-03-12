@@ -1074,7 +1074,8 @@
               })
               .then(function (token) {
                 document.getElementById("token_response").value = token;
-                signUpForm.submit();
+                document.getElementByID("sign_up_form").submit();
+                // signUpForm.submit();
               });
           });
         });
