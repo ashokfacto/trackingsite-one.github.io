@@ -31,7 +31,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
     />
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LdPetMeAAAAAD02-bm4cCKX7B7UXkxZzcKOsg7u"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <!-- Google Analytics Start-->
     <script
@@ -564,7 +564,7 @@
                 >
                   <div style="text-align: center">
                     <form
-                      action="https://app.factoreal.com/api/v1/websiteSignUp"
+                      action="https://optimus.factoreal.info/api/v1/websiteSignUp"
                       method="POST"
                       style="display: inline-block; width: 82%"
                       target="_self"
@@ -857,7 +857,7 @@
                             type="text"
                             name="redirectUrl"
                             placeholder="Phone"
-                            value="https://www.factoreal.com/signup.html"
+                            value="https://www.trackingsiteone.factoreal.info/signup.html"
                             style="
                               border-top-width: 1px;
                               border-top-style: solid;
@@ -881,20 +881,11 @@
                           />
                         </div>
                       </div>
-                      <style type="text/css">
-                        .g-recaptcha {
-                          transform: scale(0.77);
-                          -webkit-transform: scale(0.77);
-                          transform-origin: 0 0;
-                          -webkit-transform-origin: 0 0;
-                        }
-                      </style>
-                      <div
-                        class="g-recaptcha"
-                        id="rcaptcha"
-                        data-sitekey="6Le0Jz0aAAAAAJgrq64RJXqyL-NtdOfN3u-KgCrt"
-                        data-callback="validateRecaptcha"
-                      ></div>
+                      <input
+                        type="hidden"
+                        id="token_response"
+                        name="token_response"
+                      />
                       <div style="text-align: center">
                         <button
                           id="trackPixel"
@@ -1060,13 +1051,34 @@
         </div>
       </div>
     </div>
-    <script type="text/javascript">
-      function validateRecaptcha() {
-        $("#trackPixel").removeAttr("disabled");
-      }
-    </script>
+
     <script>
       $(document).ready(function () {
+        let signUpForm = $("#sign_up_form");
+        signUpForm.submit(function (event) {
+          e.preventDefault();
+          grecaptcha.enterprise.ready(function () {
+            grecaptcha.enterprise
+              .execute("6LdPetMeAAAAAD02-bm4cCKX7B7UXkxZzcKOsg7u", {
+                action: "trial-signup",
+              })
+              .then(function (token) {
+                document.getElementById("token_response").value = token;
+                signUpForm.submit();
+              });
+          });
+        });
+
+        grecaptcha.enterprise.ready(function () {
+          grecaptcha.enterprise
+            .execute("6LdPetMeAAAAAD02-bm4cCKX7B7UXkxZzcKOsg7u", {
+              action: "trial-signup",
+            })
+            .then(function (token) {
+              document.getElementById("token_response").value = token;
+            });
+        });
+
         let url = new URL(window.location.href);
         if (url.searchParams.has("status")) {
           if (url.searchParams.get("status") == "success") {
@@ -1104,7 +1116,7 @@
             $("#trackPixel").attr("disabled", "disabled");
             if ($(this).val() == "") return false;
             // $("#trackPixel").removeAttr("disabled");
-            let response = grecaptcha.getResponse();
+            let response = grecaptcha.enterprise.getResponse();
             if (response.length > 0) {
               $("#trackPixel").removeAttr("disabled");
             }
