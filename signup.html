@@ -1117,11 +1117,7 @@
           $("input.validCheck").each(function () {
             $("#trackPixel").attr("disabled", "disabled");
             if ($(this).val() == "") return false;
-            // $("#trackPixel").removeAttr("disabled");
-            let response = grecaptcha.enterprise.getResponse();
-            if (response.length > 0) {
-              $("#trackPixel").removeAttr("disabled");
-            }
+            $("#trackPixel").removeAttr("disabled");
           });
         }
 
