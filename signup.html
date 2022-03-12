@@ -1067,7 +1067,7 @@
     <script>
       $(document).ready(function () {
         let signUpForm = $("#sign_up_form");
-        signUpForm.submit(function (event) {
+        signUpForm.submit(function (e) {
           e.preventDefault();
           grecaptcha.enterprise.ready(function () {
             grecaptcha.enterprise
