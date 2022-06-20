@@ -68,9 +68,36 @@
     <script>
       document
         .querySelector('#register-form [type="submit"]')
-        .addEventListener("click", function (e) {
+        .addEventListener("click", async function (e) {
           var email = document.querySelector("#email").value;
-          ftreal.identify(email, {});
+          var firstName = document.querySelector("#name").value;
+          // ftreal.identify(email, {});
+
+          let webSubId = await _aimtellGetSubscriberID()
+            .then(function (id) {
+              return id;
+            })
+            .catch((e) => {
+              return undefined;
+            });
+
+          var data = JSON.stringify({
+            websiteid: "25284",
+            authkey:
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbnRlcnByaXNlX2lkIjoyNDQsImlhdCI6MTY1NTcwOTIxM30.9DtCd7897OxGS3axEyDnpCfPr46nVP7ND8sfFs_OwdY",
+            web_subs_id: webSubId,
+            email: email,
+            firstname: firstName,
+          });
+
+          if (webSubId && email) var xhr = new XMLHttpRequest();
+          xhr.open(
+            "POST",
+            "https://prime.factoreal.info/api/v1/webuserdata",
+            true
+          );
+          xhr.setRequestHeader("Content-Type", "application/json");
+          xhr.send(data);
         });
     </script>
   </body>
