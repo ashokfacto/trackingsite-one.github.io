@@ -79,34 +79,26 @@
                 return id;
               })
               .catch((e) => {
-                return undefined;
+                return -1;
               });
 
-            var myHeaders = new Headers();
-            myHeaders.append("Content-Type", "application/json");
-
-            var raw = JSON.stringify({
-              websiteid: "25284",
-              authkey:
-                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbnRlcnByaXNlX2lkIjoyNTIsImlhdCI6MTY2NjI0NTk0N30.9KPYwm8URiC1_wPZuKvYhJFSLSmLqjV16fYuA3Q52Ro",
-              web_subs_id: webSubId,
-              email: email,
-              firstname: firstName,
-              push_flag: true,
-            });
-
-            var requestOptions = {
+            await fetch("https://jsonplaceholder.typicode.com/posts", {
               method: "POST",
-              headers: myHeaders,
-            };
-
-            await fetch(
-              "https://prime.factoreal.info/api/v1/webuserdata",
-              requestOptions
-            )
-              .then((response) => response.text())
-              .then((result) => console.log(result))
-              .catch((error) => console.log("error", error));
+              body: JSON.stringify({
+                websiteid: "25284",
+                authkey:
+                  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbnRlcnByaXNlX2lkIjoyNTIsImlhdCI6MTY2NjI0NTk0N30.9KPYwm8URiC1_wPZuKvYhJFSLSmLqjV16fYuA3Q52Ro",
+                web_subs_id: webSubId,
+                email: email,
+                firstname: firstName,
+                push_flag: true,
+              }),
+              headers: {
+                "Content-type": "application/json",
+              },
+            })
+              .then((response) => response.json())
+              .then((json) => console.log(json));
           } catch (e) {
             console.log(e);
           }
