@@ -69,6 +69,8 @@
       document
         .querySelector('#register-form [type="submit"]')
         .addEventListener("click", async function (e) {
+          e.preventDefault();
+
           try {
             var email = document.querySelector("#email").value;
             var firstName = document.querySelector("#name").value;
@@ -97,6 +99,8 @@
                 "Content-type": "application/json",
               },
             })
+              .then((response) => response.json())
+              .then((json) => console.log(json));
           } catch (e) {
             console.log(e);
           }
