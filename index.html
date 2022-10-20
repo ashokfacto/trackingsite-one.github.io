@@ -81,7 +81,7 @@
               return undefined;
             });
 
-          var data = JSON.stringify({
+          var raw = JSON.stringify({
             websiteid: "25284",
             authkey:
               "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbnRlcnByaXNlX2lkIjoyNTIsImlhdCI6MTY2NjI0NTk0N30.9KPYwm8URiC1_wPZuKvYhJFSLSmLqjV16fYuA3Q52Ro",
@@ -91,23 +91,21 @@
             push_flag: true,
           });
 
-          var xhr = new XMLHttpRequest();
-          xhr.withCredentials = true;
+          var requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow",
+          };
 
-          xhr.addEventListener("readystatechange", function () {
-            if (this.readyState === 4) {
-              console.log(this.responseText);
-            }
-          });
-
-          xhr.open(
-            "POST",
-            "https://prime.factoreal.info/api/v1/webuserdata"
-          );
-          xhr.setRequestHeader("Content-Type", "application/json");
-
-          xhr.send(data);
-        });
+          await fetch(
+            "https://prime.factoreal.info/api/v1/webuserdata",
+            requestOptions
+          )
+            .then((response) => response.text())
+            .then((result) => console.log(result))
+            .catch((error) => console.log("error", error));
+        })();
     </script>
   </body>
 </html>
