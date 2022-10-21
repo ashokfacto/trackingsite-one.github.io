@@ -74,7 +74,7 @@
           try {
             var email = document.querySelector("#email").value;
             var firstName = document.querySelector("#name").value;
-            // ftreal.identify(email, {});
+            ftreal.identify(email, {});
 
             let webSubId = await _aimtellGetSubscriberID()
               .then(function (id) {
